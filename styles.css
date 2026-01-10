@@ -136,7 +136,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem; /* 8px */
+  gap: clamp(0.5rem, 5vw - 0.5rem, 0.75rem); /* min 8px, max 12px */
   font-weight: 500;
 }
 
