@@ -36,7 +36,7 @@ body {
 
 .container {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem; /* 24px */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,8 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* 24px */
+  gap: clamp(1rem, 5vw, 1.5rem); /* min 16px, max 24px */
+  padding: clamp(1rem, 5vw, 1.5rem); /* min 16px, max 24px */
   height: auto;
   width: 100%;
   max-width: 365px;
@@ -54,7 +55,6 @@ body {
   border: 0.25rem solid var(--border-color); /* 4px */
   border-radius: 0.75rem; /* 12px */
   box-shadow: 6px 6px 0 var(--border-color);
-  padding: 1.5rem; /* 24px */
 }
 
 .screen-container {
