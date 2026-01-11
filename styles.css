@@ -90,7 +90,7 @@ body {
 }
 
 .button {
-  height: 58px;
+  height: clamp(3.125rem, 10vw, 3.625rem); /* min 50px, max 58px */
   width: 100%;
   font-family: inherit;
   font-size: 1.375rem; /* 22px */
