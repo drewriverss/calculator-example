@@ -32,7 +32,12 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 3rem;
+  }
 }
 
 .container {
@@ -41,14 +46,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.875rem, 5vw, 1.5rem); /* min 14px, max 24px */
+  gap: clamp(0.875rem, 4vw, 1.5rem); /* min 14px, max 24px */
 }
 
 .calculator {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.875rem, 5vw, 1.5rem); /* min 14px, max 24px */
-  padding: clamp(0.875rem, 5vw, 1.5rem); /* min 14px, max 24px */
+  gap: clamp(0.875rem, 4vw, 1.5rem); /* min 14px, max 24px */
+  padding: clamp(0.875rem, 4vw, 1.5rem); /* min 14px, max 24px */
   height: auto;
   width: 100%;
   max-width: 350px;
