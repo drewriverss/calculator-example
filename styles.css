@@ -1,12 +1,20 @@
 :root {
-  --bg-color: #fcf5e5;
-  --calc-color: #a0eeee;
-  --screen-color: #f0f0f0;
-  --text-color: #424242;
-  --border-color: #424242;
-  --digit-button-color: #f0f0f0;
-  --operator-button-color: #a0eeee;
-  --equals-button-color: #ffa500;
+  /* Subtle technical gray background */
+  --bg-color: #f1f5f9;
+  /* Pure white body */
+  --calc-color: #ffffff;
+  /* Screen with a cool touch */
+  --screen-color: #f8fafc;
+  /* Professional Slate text */
+  --text-color: #1e293b;
+  /* Fine and elegant borders */
+  --border-color: #cbd5e1;
+  /* Button colors */
+  --digit-button-color: #ffffff;
+  --operator-button-color: #f1f5f9;
+  /* 'Inter' blue for the equals button */
+  --equals-button-color: #3b82f6;
+  --equals-text-color: #ffffff;
 }
 
 *,
@@ -32,11 +40,12 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
   body {
-    padding-bottom: 3rem;
+    padding-bottom: 3rem; /* 48px */
   }
 }
 
@@ -58,31 +67,38 @@ body {
   width: 100%;
   max-width: 350px;
   background-color: var(--calc-color);
-  border: 0.25rem solid var(--border-color); /* 4px */
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 6px 6px 0 var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px; /* More rounded for a modern look */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .screen-container {
-  height: 140px;
+  min-height: 8.75rem; /* 140px */
   color: var(--text-color);
   background-color: var(--screen-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem; /* 20px */
+  gap: 0.125rem; /* 2px */
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   text-align: right;
-  border: 0.25rem solid var(--border-color); /* 4px */
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: -2px -2px 0 var(--border-color);
-  padding: 2rem 1.25rem 0 1.25rem; /* 32px 20px 0px 20px */
 }
 
 .screen-top-row {
-  height: 30px;
+  height: auto;
+  min-height: 1.5rem; /* 24px */
   font-size: 1.5rem; /* 24px */
   font-weight: 500;
   overflow: hidden;
+  opacity: 0.7;
 }
 
 .screen-bottom-row {
-  height: 80px;
+  height: auto;
+  min-height: 3rem; /* 48px */
   font-size: 2.75rem; /* 44px */
   font-weight: 700;
   overflow: hidden;
@@ -91,7 +107,7 @@ body {
 .button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.5rem, 5vw - 0.625rem, 0.625rem); /* min 8px, max 10px */
+  gap: clamp(0.5rem, 4vw, 0.625rem); /* min 8px, max 10px */
   width: 100%;
 }
 
@@ -100,26 +116,30 @@ body {
   width: 100%;
   font-family: inherit;
   font-size: 1.375rem; /* 22px */
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-color);
   background-color: var(--digit-button-color);
-  border: 0.1875rem solid var(--border-color); /* 3px */
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 2px 2px 0 var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .button:hover {
-  transform: translate(2px, 2px); /* nudge down for a press effect */
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .button:active {
-  box-shadow: none; /* shadow disappears */
-  transform: translate(3px, 3px); /* looks "pressed down" */
+  transform: translateY(0) scale(0.97);
+  background-color: #f1f5f9;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 
 .span-two {
@@ -132,6 +152,13 @@ body {
 
 .button[data-action="equals"] {
   background-color: var(--equals-button-color);
+  color: var(--equals-text-color);
+  border-color: #2563eb;
+}
+
+.button[data-action="equals"]:hover {
+  background-color: #2563eb;
+  border-color: #1d4ed8;
 }
 
 .backspace-icon {
@@ -142,7 +169,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.5rem, 5vw - 0.625rem, 0.625rem); /* min 8px, max 10px */
+  gap: clamp(0.5rem, 4vw, 0.625rem); /* min 8px, max 10px */
   font-weight: 500;
 }
 
