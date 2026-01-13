@@ -21,6 +21,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {
@@ -61,8 +62,8 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.875rem, 4vw, 1.5rem); /* min 14px, max 24px */
-  padding: clamp(0.875rem, 4vw, 1.5rem); /* min 14px, max 24px */
+  gap: clamp(1rem, 4vw, 1.5rem); /* min 16px, max 24px */
+  padding: clamp(1rem, 4vw, 1.5rem); /* min 16px, max 24px */
   height: auto;
   width: 100%;
   max-width: 350px;
@@ -107,7 +108,7 @@ body {
 .button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.5rem, 4vw, 0.625rem); /* min 8px, max 10px */
+  gap: clamp(0.5rem, 2vw, 0.625rem); /* min 8px, max 10px */
   width: 100%;
 }
 
@@ -169,7 +170,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.5rem, 4vw, 0.625rem); /* min 8px, max 10px */
+  gap: clamp(0.5rem, 2vw, 0.625rem); /* min 8px, max 10px */
   font-weight: 500;
 }
 
