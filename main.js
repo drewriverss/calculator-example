@@ -117,6 +117,27 @@ function backspace() {
   }
 }
 
+function toggleSign() {
+  // 1. Si estamos editando el buffer actual
+  if (digitBuffer.length > 0) {
+    if (digitBuffer[0] === "-") {
+      digitBuffer.shift();
+    } else {
+      digitBuffer.unshift("-");
+    }
+    renderDisplay();
+    renderExpression();
+    return;
+  }
+
+  // 2. Si ya hay un resultado calculado (num1) y queremos invertirlo
+  if (hasResult && num1 !== null) {
+    num1 = num1 * -1;
+    screenBottomRow.textContent = num1;
+    renderExpression();
+  }
+}
+
 function handleDecimal() {
   if (hasResult) reset();
 
@@ -238,6 +259,9 @@ function handleCommand(action) {
       break;
     case "equals":
       handleEquals();
+      break;
+    case "negate":
+      toggleSign();
       break;
   }
 }
